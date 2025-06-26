@@ -17,11 +17,32 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+
+    protected $primaryKey = 'idUsuario';
+
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'identificacion',
+        'nombre',
+        'apellidos',
+        'telefono',
+        'idRol',
+        'nombreUsuario',
     ];
+
+    public function credencial()
+    {
+        return $this->belongsTo(Credencial::class, 'nombreUsuario', 'nombreUsuario');
+    }
+
+    public function rol()
+    {
+        return $this->belongsTo(Rol::class, 'idRol', 'idRol');
+    }
+
+    public function unidad()
+    {
+        return $this->belongsTo(Unidad::class, 'idUnidad', 'idUnidad');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
