@@ -25,7 +25,9 @@ return new class extends Migration
             $table->foreignId('idRol')
                 ->constrained('roles', 'idRol')
                 ->onDelete('restrict');
-            $table->foreignId('idUnidad');
+            $table->foreignId('idUnidad')
+                ->constrained('unidades', 'idUnidad')
+                ->onDelete('restrict');
             $table->timestamps();
         });
 
