@@ -8,5 +8,5 @@ use App\Http\Controllers\MaterialController;
 
 Route::post('/addMaterial', [MaterialController::class, 'addMaterial']);
 Route::post('/addCategoria', [CategoriaController::class, 'addCategoria']);
-Route::put('/updateMaterial/{id}', [MaterialController::class, 'updateMaterial']);
+Route::put('/updateMaterial/{codigo}', [MaterialController::class, 'updateMaterial']);
 Route::get('/getMaterialsWithCategories', [MaterialController::class, 'getMaterialsWithCategories']);

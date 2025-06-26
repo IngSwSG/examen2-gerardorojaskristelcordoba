@@ -36,7 +36,7 @@ class MaterialController extends Controller
         return response()->json($materials, 200);
     }
 
-    public function updateMaterial(Request $request, $id)
+    public function updateMaterial(Request $request, $codigo)
     {
         $request->validate([
             'unidadMedida' => 'required|string',
@@ -45,7 +45,7 @@ class MaterialController extends Controller
             'idCategoria' => 'required|exists:categorias,idCategoria',
         ]);
 
-        $material = \App\Models\Material::find($id);
+        $material = \App\Models\Material::find($codigo);
         if (!$material) {
             return response()->json(['message' => 'Material not found'], 404);
         }
